@@ -18,7 +18,7 @@ length=$(grep -v "^>" ./fasta/$genome.fna | wc -c) # wc -c counts character; | -
 
 # GC/AT ratio
 GC=$(grep -v "^>" ./fasta/$genome.fna | sed "s/[AT]//g" | wc -c)     # s -> Substitute; g -> Global
-ratio=$(echo "scale=5; $GC / $length * 100" | bc) # Calculates ratio of GC (2 decimals)
+ratio=$(echo "scale=5; $GC / $length * 100" | bc) # Calculates ratio of GC (3 decimals)
 
 # Append to output file without overwriting
 echo "$id\t$gene_count\t$length\t$ratio" >> daja.csv # \t is tab and -e makes it possible
